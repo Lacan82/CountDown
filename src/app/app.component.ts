@@ -8,7 +8,7 @@ import {createUrlResolverWithoutPackagePrefix} from '@angular/compiler';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  releaseTimes = [new Date(1613786729000), new Date(1613354729000), new Date(1614477929000)];
+  releaseTimes = [new Date(1613786729000), new Date(1613354729000), new Date(1614477929000), new Date(1612717260000), new Date(1612897401000)];
   Timer;
 
   constructor(private ref: ChangeDetectorRef) {
@@ -26,10 +26,14 @@ export class AppComponent implements OnInit {
     const currentTime = new Date(Timer);
 
     // @ts-ignore
-    let calculatedTime = releaseTime.getTime() - currentTime.getTime();
+    const calculatedTime = releaseTime.getTime() - currentTime.getTime();
     console.log(calculatedTime);
     const deltaTime = new Date(calculatedTime);
+    console.log(deltaTime.getTime() / (1000 * 3600 * 24));
     const daysCalculated = calculatedTime / (1000 * 3600 * 24);
+    if (daysCalculated < 0 ) {
+      return 'Days 0 00:00:00';
+    }
     console.log(deltaTime.getHours());
     console.log(deltaTime.getMinutes());
     console.log(deltaTime.getSeconds());
