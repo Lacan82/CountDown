@@ -24,8 +24,8 @@ export class AppComponent implements OnInit {
     // const release = new Date(releaseTime *  1000);
     // @ts-ignore
     const calculatedTime = releaseTime - new Date(Timer);
-    console.log(releaseTime);
-    return new Date(calculatedTime * 1000);
+
+    return new Date(calculatedTime);
   }
 
 }
