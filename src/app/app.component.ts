@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {Subscription, interval, BehaviorSubject} from 'rxjs';
+import {Subscription, interval} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import {Subscription, interval, BehaviorSubject} from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  releaseTimes = [new Date(1613783224 * 1000), new Date(1614474424 * 1000), new Date(1613351224 * 1000)];
+  releaseTimes = [new Date(1613786729000), new Date(1613354729000), new Date(1614477929000)];
   Timer;
 
   constructor(private ref: ChangeDetectorRef) {
@@ -24,9 +24,8 @@ export class AppComponent implements OnInit {
     // const release = new Date(releaseTime *  1000);
     // @ts-ignore
     const calculatedTime = releaseTime - new Date(Timer);
-    console.log(typeof(releaseTime));
-
-    return new Date(calculatedTime);
+    console.log(releaseTime);
+    return new Date(calculatedTime * 1000);
   }
 
 }
